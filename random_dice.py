@@ -87,9 +87,11 @@ class App:
 
     def print_menu(self):
         print()
-        print("1. 게임 시작")
-        print("2. 기록 보기")
-        print("3. 게임 종료")
+        print("1. 주사위 게임")
+        print("2. 제로 게임")
+        print("3. 369 게임")
+        print("4. 홀짝 게임")        
+        print("5. 게임 종료")
 
     def input_menu(self):
         while True:
@@ -117,11 +119,19 @@ class App:
                     self.history_board.add_record(nickname, "성공")
                 else:
                     self.history_board.add_record(nickname, "실패")
-
-            elif menu == 2:
+                ## 기록보는거 여기서 통합해주세요
                 self.history_board.show_result()
+                    
+            elif menu == 2:
+                game = 제로게임
 
             elif menu == 3:
+                game = 369게임
+
+            elif menu == 4:
+                game = 홀짝게임
+
+            elif menu == 5:
                 print("프로그램을 종료합니다.")
                 break
 
