@@ -31,6 +31,8 @@ class App:
         self.history_board = Ranom_dice_history()
         from random_dice import DiceGame
         self.DiceGame = DiceGame()
+        from 제로게임 import zerogame
+        self.zerogame = zerogame()
 
     def print_menu(self):
         print()
@@ -69,7 +71,9 @@ class App:
                 self.history_board.show_result()
                     
             elif menu == 2:
-                game = "제로게임"
+                print("")
+                choose=input("메뉴를 선택해주세요:")
+                self.zerogame.zero()
 
             elif menu == 3:
                 game = "369게임"
