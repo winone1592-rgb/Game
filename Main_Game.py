@@ -59,16 +59,26 @@ class App:
             menu = self.input_menu()
 
             if menu == 1:
-                success = self.DiceGame.play()
+                print("1. 주사위 게임 시작")
+                print("2. 주사위 게임 기록보기")
 
-                nickname = input("닉네임을 입력하세요: ")
+                choose = input("메뉴를 선택해주세요: ")
 
-                if success:
-                    self.history_board.add_record(nickname, "성공")
+                if choose == "1":
+                    success = self.DiceGame.play()
+
+                    nickname = input("닉네임을 입력하세요: ")
+
+                    if success:
+                        self.history_board.add_record(nickname, "성공")
+                    else:
+                        self.history_board.add_record(nickname, "실패")
+
+                elif choose == "2":
+                    self.history_board.show_result()
+
                 else:
-                    self.history_board.add_record(nickname, "실패")
-                ## 기록보는거 여기서 통합해주세요
-                self.history_board.show_result()
+                    print("잘못된 메뉴선택입니다.")
                     
             elif menu == 2:
                 print("1. 제로게임 시작")
