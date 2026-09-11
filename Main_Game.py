@@ -71,9 +71,15 @@ class App:
                 self.history_board.show_result()
                     
             elif menu == 2:
-                print("")
+                print("1. 제로게임 시작")
+                print("2. 제로게임 기록보기")
                 choose=input("메뉴를 선택해주세요:")
-                self.zerogame.zero()
+                if choose == "1":
+                    self.zerogame.zero()
+                elif choose == "2":
+                    print("서비스 준비중")
+                else:
+                    print("잘못된 메뉴선택입니다.")
 
             elif menu == 3:
                 game = "369게임"
