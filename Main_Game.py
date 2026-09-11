@@ -27,7 +27,12 @@ class LoginManager:
 class App:
     def __init__(self):
         self.login_manager = LoginManager("admin", "1234")
+        from random_dice import Ranom_dice_history
         self.history_board = Ranom_dice_history()
+        from random_dice import DiceGame
+        self.DiceGame = DiceGame()
+        from 제로게임 import zerogame
+        self.zerogame = zerogame()
 
     def print_menu(self):
         print()
@@ -54,26 +59,43 @@ class App:
             menu = self.input_menu()
 
             if menu == 1:
-                game = DiceGame()
-                success = game.play()
+                print("1. 주사위 게임 시작")
+                print("2. 주사위 게임 기록보기")
 
-                nickname = input("닉네임을 입력하세요: ")
+                choose = input("메뉴를 선택해주세요: ")
 
-                if success:
-                    self.history_board.add_record(nickname, "성공")
+                if choose == "1":
+                    success = self.DiceGame.play()
+
+                    nickname = input("닉네임을 입력하세요: ")
+
+                    if success:
+                        self.history_board.add_record(nickname, "성공")
+                    else:
+                        self.history_board.add_record(nickname, "실패")
+
+                elif choose == "2":
+                    self.history_board.show_result()
+
                 else:
-                    self.history_board.add_record(nickname, "실패")
-                ## 기록보는거 여기서 통합해주세요
-                self.history_board.show_result()
+                    print("잘못된 메뉴선택입니다.")
                     
             elif menu == 2:
-                game = 제로게임
+                print("1. 제로게임 시작")
+                print("2. 제로게임 기록보기")
+                choose=input("메뉴를 선택해주세요:")
+                if choose == "1":
+                    self.zerogame.zero()
+                elif choose == "2":
+                    print("서비스 준비중")
+                else:
+                    print("잘못된 메뉴선택입니다.")
 
             elif menu == 3:
-                game = 369게임
+                game = "369게임"
 
             elif menu == 4:
-                game = 홀짝게임
+                game = "홀짝게임"
 
             elif menu == 5:
                 print("프로그램을 종료합니다.")

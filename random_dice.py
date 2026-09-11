@@ -71,4 +71,8 @@ class Ranom_dice_history:
         print("===== 게임 기록 =====")
 
         for record in self.records:
+
             print(record["name"], ",", record["result"])
+
+
+
