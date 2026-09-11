@@ -89,7 +89,7 @@ class App:
                 if choose == "1":
                     self.zerogame.zero()
                 elif choose == "2":
-                    print("서비스 준비중")
+                    self.zerogame.read_history()
                 else:
                     print("잘못된 메뉴선택입니다.")
 
@@ -118,3 +118,4 @@ class App:
 
 app = App()
 app.run()
+

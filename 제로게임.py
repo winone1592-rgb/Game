@@ -38,7 +38,20 @@ class zerogame:
         with open("zero_history.txt","a",encoding="utf-8")as file:
             file.write(f"{n}, {r}")
 
+    def read_history(self):
+        his = []
+        with open ("zero_history.txt", "r", encoding="utf-8")as file:
+            recds=file.readlines()
+        for recd in recds:
+            data = recd.strip().split(",")
+            his.append(data)
+        for i in his:
+            print(f"닉네임: {i[0]} / 결과: {i[1]}" )
 
-# from 제로게임 import zerogame
-# a=zerogame()
-# a.zero()
+
+
+"""    
+from 제로게임 import zerogame
+a=zerogame()
+#a.zero()
+a.read_history() """
