@@ -33,6 +33,8 @@ class App:
         self.DiceGame = DiceGame()
         from 제로게임 import zerogame
         self.zerogame = zerogame()
+        from ThreeSixNine_game import ThreeSixNine
+        self.ThreeSixNineGame = ThreeSixNine()
 
     def print_menu(self):
         print()
@@ -92,7 +94,16 @@ class App:
                     print("잘못된 메뉴선택입니다.")
 
             elif menu == 3:
-                game = "369게임"
+                print("1. 369게임 시작")
+                print("2. 369게임 기록보기")
+                choose=input("메뉴를 선택해주세요:")
+                if choose == "1":
+                    self.ThreeSixNineGame.play_game()
+                elif choose == "2":
+                    # print("서비스 준비중")
+                    self.ThreeSixNineGame.show_result(cut=10)   # 10개 history 출력
+                else:
+                    print("잘못된 메뉴선택입니다.")
 
             elif menu == 4:
                 game = "홀짝게임"
