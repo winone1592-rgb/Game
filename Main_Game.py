@@ -35,6 +35,8 @@ class App:
         self.zerogame = zerogame()
         from ThreeSixNine_game import ThreeSixNine
         self.ThreeSixNineGame = ThreeSixNine()
+        from 홀짝게임 import EvenOddGame
+        self.evenoddgame = EvenOddGame()
 
     def print_menu(self):
         print()
@@ -107,6 +109,7 @@ class App:
 
             elif menu == 4:
                 game = "홀짝게임"
+                self.evenoddgame.start()
 
             elif menu == 5:
                 print("프로그램을 종료합니다.")
