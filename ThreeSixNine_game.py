@@ -78,16 +78,33 @@ class ThreeSixNine:
         self.save_history(self.history, self.filename)
 
 
+    def show_result(self, cut=10):
+        history_for_showing = []
+
+        with open(self.filename, "r", encoding="utf-8") as file:
+            lines = file.readlines()
+
+            for line in lines:
+                if len(lines) >= cut:
+                    for i in range(cut):
+                        print(f"{i+1}회 결과: ", line.strip())
+                else:
+                    for i in range(len(lines)):
+                        print(f"{i+1}회 결과: ", line.strip())
 
 
+    
 
     
 
 
 
 
+
 # app = ThreeSixNine()
 # app.play_game(start_num=1, end_num=50)
+
+# app.show_result(cut=10)
 
         
 
