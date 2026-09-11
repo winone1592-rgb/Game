@@ -50,8 +50,8 @@ class zerogame:
 
 
 
-            
+"""    
 from 제로게임 import zerogame
 a=zerogame()
 #a.zero()
-a.read_history()
+a.read_history() """
